@@ -1,28 +1,22 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
 import SingleImageConversion from './components/SingleImageConversion';
 import BatchImageConversion from './components/BatchImageConversion';
-import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <nav>
-          <ul>
-            <li><Link to="/">Single Image Conversion</Link></li>
-            <li><Link to="/batch">Batch Image Conversion</Link></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
+    <Router>
+      <Header />
+      <div className="container">
         <Routes>
-          <Route path="/" element={<SingleImageConversion />} />
+          <Route path="/single" element={<SingleImageConversion />} />
           <Route path="/batch" element={<BatchImageConversion />} />
+          <Route path="/" element={<SingleImageConversion />} />
         </Routes>
-      </main>
-    </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
