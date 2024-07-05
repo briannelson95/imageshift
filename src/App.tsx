@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Routes, Route, Link } from 'react-router-dom';
+import SingleImageConversion from './components/SingleImageConversion';
+import BatchImageConversion from './components/BatchImageConversion';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <nav>
+          <ul>
+            <li><Link to="/">Single Image Conversion</Link></li>
+            <li><Link to="/batch">Batch Image Conversion</Link></li>
+          </ul>
+        </nav>
       </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<SingleImageConversion />} />
+          <Route path="/batch" element={<BatchImageConversion />} />
+        </Routes>
+      </main>
     </div>
   );
 }
