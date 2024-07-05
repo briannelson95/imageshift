@@ -4,7 +4,7 @@ import './SingleImageConversion.css';
 const SingleImageConversion: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);
   const [imagePath, setImagePath] = useState<string>('');
-  const [conversionType, setConversionType] = useState<string>('jpg');
+  const [conversionType, setConversionType] = useState<string | undefined>(undefined);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -31,7 +31,8 @@ const SingleImageConversion: React.FC = () => {
   return (
     <div className="single-image-conversion">
       <div className="file-selection">
-        <label htmlFor="file-input" className="file-label">Choose Image</label>
+        {/* <h2 className='source'>Source:</h2> */}
+        <label htmlFor="file-input" className="file-label">Select an Image: </label>
         <input
           type="text"
           className="file-path"
@@ -46,15 +47,6 @@ const SingleImageConversion: React.FC = () => {
           className="file-input"
         />
       </div>
-      <div className="conversion-controls">
-        <select value={conversionType} onChange={handleConversionTypeChange}>
-          <option value="jpg">JPG</option>
-          <option value="png">PNG</option>
-          <option value="webp">WebP</option>
-          <option value="heic">HEIC</option>
-        </select>
-        <button onClick={() => alert('Convert Image')}>Convert</button>
-      </div>
       <div className="image-preview-box">
         {image ? (
           <img src={image} alt="Preview" className="image-preview" />
@@ -62,6 +54,27 @@ const SingleImageConversion: React.FC = () => {
           <div className="image-placeholder">No image selected</div>
         )}
       </div>
+      <div className='output'>
+        <label htmlFor="output-path" className="output-label">Rename: </label>
+        <input
+          type="text"
+          className="output-name"
+          // value={imagePath}
+          // onChange={handleFilePathChange}
+        />
+      </div>
+      <div className="conversion-controls">
+        Conversion type:
+          <select value={conversionType} onChange={handleConversionTypeChange}>
+            <option value='Format' selected disabled>Choose type</option>
+            <option value="jpg">JPG</option>
+            <option value="png">PNG</option>
+            <option value="webp">WebP</option>
+            <option value="heic">HEIC</option>
+          </select>
+          
+        </div>
+      <button onClick={() => alert('Convert Image')}>Convert</button>
     </div>
   );
 };

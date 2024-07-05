@@ -2,14 +2,22 @@
 .single-image-conversion {
     gap: 1rem;
     padding: 1rem;
+    width: 100vw;
 }
   
 .file-selection {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
-    max-width: 600px;
+    max-width: 750px;
+}
+
+.source {
+    font-size: medium;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
 }
   
 .file-label {
@@ -45,12 +53,15 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-top: 0.5rem;
 }
   
 .image-preview-box {
     width: 100%;
-    max-width: 600px;
-    height: 300px;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    max-width: 750px;
+    height: 250px;
     border: 1px solid #ccc;
     display: flex;
     align-items: center;
@@ -64,6 +75,22 @@
   
 .image-placeholder {
     color: #888;
+}
+
+.output {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 750px;
+}
+
+.output-name {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
   
 select, button {
